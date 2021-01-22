@@ -9,7 +9,7 @@ info:
 servers:
   - url: / 
 paths:
-  /:
+  /secrets:
     post:
       operationId: storeSecret
       description: Store a secret for retrieval
@@ -23,7 +23,7 @@ paths:
                 properties:
                   key:
                     description: A key generated for secret retrieval
-  /{key}:
+  /secrets/{key}:
     get:
       operationId: getSecret
       description: Get a secret using a key (secret is deleted together with the key upon retrieval)
