@@ -34,9 +34,9 @@ create_entry(Req0, State) ->
 resource_exists(Req, State) ->
     case cowboy_req:binding(key, Req) of
         undefined ->
-            {true, Req, index};
+            {false, Req, State};
         Key ->
-			DecodedKey = base64url:decode(Key),
+            DecodedKey = base64url:decode(Key),
             case erlang_secrets_server:get_secret(DecodedKey) of
                 {ok, Secret} ->
                     {true, Req, Secret};

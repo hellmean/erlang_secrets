@@ -15,9 +15,6 @@ store_secret(Secret) ->
 get_secret(Key) ->
     gen_server:call({global, erlang_secrets_server}, {get_secret, Key}).
 
-% start() ->
-%     erlang_secrets_sup:start_child(Name).
-
 stop() ->
     gen_server:call({global, erlang_secrets_server}, stop).
 
